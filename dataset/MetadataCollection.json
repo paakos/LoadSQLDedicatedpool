@@ -1,0 +1,53 @@
+{
+	"name": "MetadataCollection",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSQL4audit",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Schema",
+				"type": "varchar"
+			},
+			{
+				"name": "table",
+				"type": "varchar"
+			},
+			{
+				"name": "column",
+				"type": "varchar"
+			},
+			{
+				"name": "type",
+				"type": "varchar"
+			},
+			{
+				"name": "max_length",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Collation",
+				"type": "varchar"
+			},
+			{
+				"name": "Executiontime",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "Metadata",
+			"table": "Columns"
+		}
+	}
+}

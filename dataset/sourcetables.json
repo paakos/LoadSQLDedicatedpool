@@ -1,0 +1,27 @@
+{
+	"name": "sourcetables",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SourceTables",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Tipo",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": {
+				"value": "item().Schema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "item().table",
+				"type": "Expression"
+			}
+		}
+	}
+}

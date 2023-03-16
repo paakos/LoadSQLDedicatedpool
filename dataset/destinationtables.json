@@ -1,0 +1,32 @@
+{
+	"name": "destinationtables",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSQL4audit",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"schema": {
+				"type": "string",
+				"defaultValue": "dbo"
+			},
+			"tableName": {
+				"type": "string",
+				"defaultValue": "dbo.Mig_Relac_Pta_PlantillaConceptoClinico_destino"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@item().Schema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@item().table",
+				"type": "Expression"
+			}
+		}
+	}
+}
