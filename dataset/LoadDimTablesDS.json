@@ -52,10 +52,6 @@
 				"name": "CustomMemberOptions",
 				"type": "nvarchar"
 			}
-		],
-		"typeProperties": {
-			"schema": "dbo",
-			"table": "DimProduct"
-		}
+		]
 	}
 }
