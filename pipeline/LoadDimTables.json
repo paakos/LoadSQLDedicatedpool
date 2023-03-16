@@ -17,6 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
+						"sqlReaderQuery": "select name from sys.tables where name in ('DimProduct','DimEmployee')",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -25,8 +26,71 @@
 						"type": "DatasetReference"
 					}
 				}
+			},
+			{
+				"name": "SetName",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "LoopupforDimTables",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "tableName",
+					"value": {
+						"value": "@activity('LoopupforDimTables').output.value",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "SetName",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "select * from",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "LoadDimTablesDS",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
+		"variables": {
+			"tableName": {
+				"type": "Array"
+			}
+		},
 		"annotations": []
 	}
 }
