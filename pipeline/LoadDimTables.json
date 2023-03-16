@@ -68,7 +68,14 @@
 						{
 							"name": "CopyDimTAbles",
 							"type": "Copy",
-							"dependsOn": [],
+							"dependsOn": [
+								{
+									"activity": "SetCopyCommandVar",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
 							"policy": {
 								"timeout": "0.12:00:00",
 								"retry": 0,
@@ -89,9 +96,345 @@
 								},
 								"sink": {
 									"type": "SqlDWSink",
-									"allowCopyCommand": true
+									"allowCopyCommand": {
+										"value": "@variables('CopyComand')",
+										"type": "Expression"
+									},
+									"tableOption": "autoCreate",
+									"disableMetricsCollection": false
 								},
-								"enableStaging": false
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"mappings": [
+										{
+											"source": {
+												"name": "CustomerKey",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "ProductKey",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "GeographyKey",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "ProductAlternateKey",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "CustomerAlternateKey",
+												"type": "String"
+											},
+											"sink": {
+												"name": "ProductSubcategoryKey",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "Title",
+												"type": "String"
+											},
+											"sink": {
+												"name": "WeightUnitMeasureCode",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "FirstName",
+												"type": "String"
+											},
+											"sink": {
+												"name": "SizeUnitMeasureCode",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "MiddleName",
+												"type": "String"
+											},
+											"sink": {
+												"name": "EnglishProductName",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "LastName",
+												"type": "String"
+											},
+											"sink": {
+												"name": "SpanishProductName",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "NameStyle",
+												"type": "Boolean"
+											},
+											"sink": {
+												"name": "FrenchProductName",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "BirthDate",
+												"type": "DateTime"
+											},
+											"sink": {
+												"name": "StandardCost",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "MaritalStatus",
+												"type": "String"
+											},
+											"sink": {
+												"name": "FinishedGoodsFlag",
+												"type": "Boolean"
+											}
+										},
+										{
+											"source": {
+												"name": "Suffix",
+												"type": "String"
+											},
+											"sink": {
+												"name": "Color",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "Gender",
+												"type": "String"
+											},
+											"sink": {
+												"name": "SafetyStockLevel",
+												"type": "Int16"
+											}
+										},
+										{
+											"source": {
+												"name": "EmailAddress",
+												"type": "String"
+											},
+											"sink": {
+												"name": "ReorderPoint",
+												"type": "Int16"
+											}
+										},
+										{
+											"source": {
+												"name": "YearlyIncome",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "ListPrice",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "TotalChildren",
+												"type": "Byte"
+											},
+											"sink": {
+												"name": "Size",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "NumberChildrenAtHome",
+												"type": "Byte"
+											},
+											"sink": {
+												"name": "SizeRange",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "EnglishEducation",
+												"type": "String"
+											},
+											"sink": {
+												"name": "Weight",
+												"type": "Single"
+											}
+										},
+										{
+											"source": {
+												"name": "SpanishEducation",
+												"type": "String"
+											},
+											"sink": {
+												"name": "DaysToManufacture",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "FrenchEducation",
+												"type": "String"
+											},
+											"sink": {
+												"name": "ProductLine",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "EnglishOccupation",
+												"type": "String"
+											},
+											"sink": {
+												"name": "DealerPrice",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "SpanishOccupation",
+												"type": "String"
+											},
+											"sink": {
+												"name": "Class",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "FrenchOccupation",
+												"type": "String"
+											},
+											"sink": {
+												"name": "Style",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "HouseOwnerFlag",
+												"type": "String"
+											},
+											"sink": {
+												"name": "ModelName",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "NumberCarsOwned",
+												"type": "Byte"
+											},
+											"sink": {
+												"name": "EnglishDescription",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "AddressLine1",
+												"type": "String"
+											},
+											"sink": {
+												"name": "FrenchDescription",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "AddressLine2",
+												"type": "String"
+											},
+											"sink": {
+												"name": "ChineseDescription",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "Phone",
+												"type": "String"
+											},
+											"sink": {
+												"name": "ArabicDescription",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "DateFirstPurchase",
+												"type": "DateTime"
+											},
+											"sink": {
+												"name": "HebrewDescription",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "CommuteDistance",
+												"type": "String"
+											},
+											"sink": {
+												"name": "ThaiDescription",
+												"type": "String"
+											}
+										},
+										{
+											"sink": {
+												"name": "GermanDescription",
+												"type": "String"
+											}
+										},
+										{
+											"sink": {
+												"name": "JapaneseDescription",
+												"type": "String"
+											}
+										},
+										{
+											"sink": {
+												"name": "TurkishDescription",
+												"type": "String"
+											}
+										},
+										{
+											"sink": {
+												"name": "StartDate",
+												"type": "DateTime"
+											}
+										},
+										{
+											"sink": {
+												"name": "EndDate",
+												"type": "DateTime"
+											}
+										},
+										{
+											"sink": {
+												"name": "Status",
+												"type": "String"
+											}
+										}
+									]
+								}
 							},
 							"inputs": [
 								{
@@ -105,6 +448,19 @@
 									"type": "DatasetReference"
 								}
 							]
+						},
+						{
+							"name": "SetCopyCommandVar",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "CopyComand",
+								"value": {
+									"value": "@concat('COPY INTO ', item().name,\n'FROM ', item().name,\n'WITH (\n    CREDENTIAL = mycredential,\n    FORMAT = parquet)')",
+									"type": "Expression"
+								}
+							}
 						}
 					]
 				}
@@ -113,6 +469,10 @@
 		"variables": {
 			"tableName": {
 				"type": "Array"
+			},
+			"CopyComand": {
+				"type": "String",
+				"defaultValue": "''"
 			}
 		},
 		"annotations": []
