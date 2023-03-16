@@ -1,0 +1,12 @@
+{
+	"name": "DemoDWH1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SourceTables",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
