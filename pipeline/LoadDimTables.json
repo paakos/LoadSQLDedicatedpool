@@ -189,16 +189,6 @@
 										},
 										{
 											"source": {
-												"name": "BirthDate",
-												"type": "DateTime"
-											},
-											"sink": {
-												"name": "StandardCost",
-												"type": "Decimal"
-											}
-										},
-										{
-											"source": {
 												"name": "MaritalStatus",
 												"type": "String"
 											},
@@ -394,42 +384,6 @@
 											},
 											"sink": {
 												"name": "ThaiDescription",
-												"type": "String"
-											}
-										},
-										{
-											"sink": {
-												"name": "GermanDescription",
-												"type": "String"
-											}
-										},
-										{
-											"sink": {
-												"name": "JapaneseDescription",
-												"type": "String"
-											}
-										},
-										{
-											"sink": {
-												"name": "TurkishDescription",
-												"type": "String"
-											}
-										},
-										{
-											"sink": {
-												"name": "StartDate",
-												"type": "DateTime"
-											}
-										},
-										{
-											"sink": {
-												"name": "EndDate",
-												"type": "DateTime"
-											}
-										},
-										{
-											"sink": {
-												"name": "Status",
 												"type": "String"
 											}
 										}
