@@ -96,6 +96,10 @@
 								},
 								"sink": {
 									"type": "SqlDWSink",
+									"preCopyScript": {
+										"value": "@{concat('SET IDENTITY INSERT ', item().name, ' ON')}",
+										"type": "Expression"
+									},
 									"allowCopyCommand": {
 										"value": "@variables('CopyComand')",
 										"type": "Expression"
