@@ -419,6 +419,42 @@
 									"type": "Expression"
 								}
 							}
+						},
+						{
+							"name": "Stored procedure1",
+							"type": "SqlServerStoredProcedure",
+							"dependsOn": [
+								{
+									"activity": "CopyDimTAbles",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"storedProcedureName": "[dbo].[sp_identity_insert_off]",
+								"storedProcedureParameters": {
+									"table_name": {
+										"value": {
+											"value": "@item().name",
+											"type": "Expression"
+										},
+										"type": "String"
+									}
+								}
+							},
+							"linkedServiceName": {
+								"referenceName": "dedicatedpoolDWH",
+								"type": "LinkedServiceReference"
+							}
 						}
 					]
 				}
@@ -426,7 +462,10 @@
 		],
 		"variables": {
 			"tableName": {
-				"type": "Array"
+				"type": "Array",
+				"defaultValue": [
+					"DimProduct"
+				]
 			},
 			"CopyComand": {
 				"type": "String",
