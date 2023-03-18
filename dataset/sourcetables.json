@@ -14,14 +14,8 @@
 			}
 		],
 		"typeProperties": {
-			"schema": {
-				"value": "item().Schema",
-				"type": "Expression"
-			},
-			"table": {
-				"value": "item().table",
-				"type": "Expression"
-			}
+			"schema": "dbo",
+			"table": "DimProduct"
 		}
 	}
 }
