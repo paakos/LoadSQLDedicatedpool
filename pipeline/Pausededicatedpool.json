@@ -27,7 +27,7 @@
 				}
 			},
 			{
-				"name": "Filter Prod",
+				"name": "Filter_Prod",
 				"type": "Filter",
 				"dependsOn": [
 					{
@@ -48,6 +48,19 @@
 						"type": "Expression"
 					}
 				}
+			},
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Filter_Prod",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": []
 			}
 		],
 		"parameters": {
