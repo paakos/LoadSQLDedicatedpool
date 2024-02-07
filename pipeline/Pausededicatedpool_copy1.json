@@ -33,7 +33,7 @@
 					{
 						"activity": "Get_Status",
 						"dependencyConditions": [
-							"Skipped"
+							"Succeeded"
 						]
 					}
 				],
