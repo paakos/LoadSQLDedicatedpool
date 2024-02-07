@@ -1,5 +1,5 @@
 {
-	"name": "Pausededicatedpool",
+	"name": "Pausededicatedpool_complex",
 	"properties": {
 		"activities": [
 			{
@@ -48,19 +48,6 @@
 						"type": "Expression"
 					}
 				}
-			},
-			{
-				"name": "ForEach1",
-				"type": "ForEach",
-				"dependsOn": [
-					{
-						"activity": "Filter_Prod",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": []
 			}
 		],
 		"parameters": {
@@ -78,7 +65,7 @@
 			},
 			"SQLPoolName": {
 				"type": "string",
-				"defaultValue": "paakossynapse"
+				"defaultValue": "paakossqlpool"
 			},
 			"PauseorResume": {
 				"type": "string"
