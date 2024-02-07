@@ -87,7 +87,7 @@
 			},
 			"SQLPoolName": {
 				"type": "string",
-				"defaultValue": "paakossynapse"
+				"defaultValue": "paaokssqlpool"
 			},
 			"PauseorResume": {
 				"type": "string"
