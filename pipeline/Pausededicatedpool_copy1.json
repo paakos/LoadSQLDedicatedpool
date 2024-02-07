@@ -40,7 +40,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@equals(activity('Get_Status').output.properties.state,'Active')",
+						"value": "@equals(activity('Get_Status').output.properties.status,'Active')",
 						"type": "Expression"
 					},
 					"ifTrueActivities": [
